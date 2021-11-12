@@ -13,7 +13,8 @@ git clone https://github.com/induwarauthsara/lmsBackend
 ## Install & Run the Backend
 
 ```bash
-cd lmsBackend npm install
+cd lmsBackend
+npm install
 npm start
 ```
 
