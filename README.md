@@ -17,21 +17,23 @@ npm start
 
 ### Book API
 
-- Get all Books Details - [GET] /api/book
-- Get one Book Details - [GET] /api/book/:id
-- Create New Book - [POST] /api/book
-- Borrow Book - [PUT] /api/book/:id/borrow
-- Return Book - [PUT] /api/book/:id/return
-- Delete Book - [DELETE] /api/book/:id
-- Edit Book - [PUT] /api/book/:id
+- Get all Books Details - [GET] localhost:2000/book
+- Get one Book Details - [GET] localhost:2000/book/:id
+- Create New Book - [POST] localhost:2000/book
+- Borrow Book - [PUT] localhost:2000/book/:id/borrow
+- Return Book - [PUT] localhost:2000/book/:id/return
+- Delete Book - [DELETE] localhost:2000/book/:id
+- Edit Book - [PUT] localhost:2000/book/:id
 
 ### Member API
 
-- Get all Members Details - [GET] /api/member
-- Get one Member Details - [GET] /api/member/:id
-- Create New Member - [POST] /api/member
-- Delete Member - [DELETE] /api/member/:id
-- Edit Member - [PUT] /api/member/:id
+- Get all Members Details - [GET] localhost:2000/member
+- Get one Member Details - [GET] localhost:2000/member/:id
+- Create New Member - [POST] localhost:2000/member
+- Delete Member - [DELETE] localhost:2000/member/:id
+- Edit Member - [PUT] localhost:2000/member/:id
+
+* Note: If you want change server port, you need to change port in `server.js` file. Replace `port = 2000;` line with your port number.
 
 ## Technical support
 
