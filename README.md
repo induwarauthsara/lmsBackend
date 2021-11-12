@@ -6,7 +6,9 @@ Library Management System Backend with ExpressJS and MongoDB
 
 You can install this project with
 
-`git clone https://github.com/induwarauthsara/lmsBackend cd lmsBackend npm install`
+`git clone https://github.com/induwarauthsara/lmsBackend
+cd lmsBackend
+npm install`
 
 ## Run the Backend
 
