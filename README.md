@@ -33,7 +33,7 @@ npm start
 - Delete Member - [DELETE] localhost:2000/member/:id
 - Edit Member - [PUT] localhost:2000/member/:id
 
-* Note: If you want change server port, you need to change port in `server.js` file. Replace `port = 2000;` line with your port number.
+Note: If you want change server port, you need to change port in `server.js` file. Replace `port = 2000;` line with your port number.
 
 ## Technical support
 
