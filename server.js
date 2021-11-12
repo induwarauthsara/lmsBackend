@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Book = require("./models/book");
-const Member = require("./models/members");
+const Member = require("./models/member");
 
 const server = express();
 const databaseURL =
