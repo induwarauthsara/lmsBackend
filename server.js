@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const Book = require("./models/book");
 const Member = require("./models/member");
 
-
 const server = express();
 const databaseURL =
     "mongodb+srv://induwara:induwara@cluster0.vb0bu.mongodb.net/lms?retryWrites=true&w=majority";
@@ -15,8 +14,9 @@ mongoose
     })
     .then((result) => {
         console.log("Database connected");
-        server.listen(200, () => {
-            console.log("ExpressJS Server stared");
+        port = 2000;
+        server.listen(port, () => {
+            console.log(`ExpressJS Server stared on port ${port}`);
         });
     })
     .catch((err) => {
