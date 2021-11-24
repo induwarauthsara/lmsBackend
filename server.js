@@ -14,7 +14,7 @@ mongoose
     })
     .then((result) => {
         console.log("Database connected");
-        port = 2000;
+        port = process.env.PORT || 3000;
         server.listen(port, () => {
             console.log(`ExpressJS Server stared on port ${port}`);
         });
