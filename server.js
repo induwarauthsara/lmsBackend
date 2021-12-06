@@ -31,11 +31,18 @@ server.use(cors());
 
 // ----------- Book API Implement ------------------
 
-// GET all books
-server.get("/book", async(req, res) => {
+// Cors Test
+server.get("/get", function(req, res, next) {
     const books = await Book.find();
     res.send(books);
+    // res.json({ msg: "This is CORS-enabled for all origins!" });
 });
+
+// GET all books
+// server.get("/book", async(req, res) => {
+//     const books = await Book.find();
+//     res.send(books);
+// });
 
 // Get one book details
 server.get("/book/:id", async(req, res) => {
