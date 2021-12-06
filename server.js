@@ -32,7 +32,7 @@ server.use(cors());
 // ----------- Book API Implement ------------------
 
 // Cors Test
-server.get("/get", function(req, res, next) {
+server.get("/book", function(req, res, next) {
     // const books = await Book.find();
     // res.send(books);
     res.json({ msg: "This is CORS-enabled for all origins!" });
