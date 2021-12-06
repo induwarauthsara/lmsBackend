@@ -33,9 +33,9 @@ server.use(cors());
 
 // Cors Test
 server.get("/get", function(req, res, next) {
-    const books = await Book.find();
-    res.send(books);
-    // res.json({ msg: "This is CORS-enabled for all origins!" });
+    // const books = await Book.find();
+    // res.send(books);
+    res.json({ msg: "This is CORS-enabled for all origins!" });
 });
 
 // GET all books
