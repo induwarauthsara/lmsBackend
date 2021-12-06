@@ -32,7 +32,7 @@ server.use(cors());
 // ----------- Book API Implement ------------------
 
 // GET all books
-server.get("/book", async(req, res, next) => {
+server.get("/book", async(req, res) => {
     const books = await Book.find();
     res.send(books);
 });
