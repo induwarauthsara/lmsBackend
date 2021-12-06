@@ -7,6 +7,8 @@ const server = express();
 const databaseURL =
     "mongodb+srv://induwara:induwara@cluster0.vb0bu.mongodb.net/lms?retryWrites=true&w=majority";
 
+const PORT = process.env.PORT || 2000;
+
 mongoose
     .connect(databaseURL, {
         useNewUrlParser: true,
@@ -14,9 +16,8 @@ mongoose
     })
     .then((result) => {
         console.log("Database connected");
-        port = process.env.PORT || 3000;
-        server.listen(port, () => {
-            console.log(`ExpressJS Server stared on port ${port}`);
+        server.listen(PORT, () => {
+            console.log(`ExpressJS Server stared on port ${PORT}`);
         });
     })
     .catch((err) => {
