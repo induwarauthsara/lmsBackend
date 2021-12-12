@@ -180,7 +180,7 @@ server.post("/member", async(req, res) => {
 server.delete("/member/:id", async(req, res) => {
     id = req.params.id;
     const member = await Member.findByIdAndDelete(id);
-    sendMember(res, id);
+    res.send(member);
 });
 
 // Edit Member
