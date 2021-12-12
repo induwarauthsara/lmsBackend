@@ -43,7 +43,6 @@ const convertToBook = (book) => {
 };
 
 const sendBook = async(req, id) => {
-    id;
     const book = await Book.findById(id);
     res.send(convertToBook(book));
 };
