@@ -31,26 +31,52 @@ server.use(cors());
 
 // ----------- Book API Implement ------------------
 
+const convertToBook = (book) => {
+    return {
+        id: book._id,
+        title: book.title,
+        author: book.author,
+        isAvailable: book.isAvailable,
+        burrowedMemberId: book.burrowedMemberId,
+        burrowedDate: book.burrowedDate,
+    };
+};
+
+const sendBook = async(req, id) => {
+    id;
+    const book = await Book.findById(id);
+    res.send(convertToBook(book));
+};
+
 // GET all books
 server.get("/book", async(req, res) => {
     const books = await Book.find();
-    res.send(books);
+    res.send(
+        books.map((book) => {
+            return convertToBook(book);
+        })
+    );
 });
 
 // Get one book details
 server.get("/book/:id", async(req, res) => {
     const id = req.params.id;
-    const book = await Book.findById(id);
-    res.send(book);
+    sendBook(res, id);
 });
 
 // Add new book
 server.post("/book", async(req, res) => {
     const { title, author } = req.body;
 
-    const book = new Book({ title, author });
+    const book = new Book({
+        title,
+        author,
+        isAvailable: true,
+        burrowedMemberId: "",
+        burrowedDate: "",
+    });
     const response = await book.save();
-    res.send(response);
+    res.send(convertToBook(response));
 });
 
 // Burrow book
@@ -59,11 +85,11 @@ server.put("/book/:id/borrow", async(req, res) => {
     const { burrowedMemberId, burrowedDate } = req.body;
 
     const book = await Book.findByIdAndUpdate(id, {
+        isAvailable: false,
         burrowedMemberId,
         burrowedDate,
-        isAvailable: false,
     });
-    res.send(book);
+    sendBook(res, id);
 });
 
 // Return book
@@ -75,7 +101,7 @@ server.put("/book/:id/return", async(req, res) => {
         burrowedDate: "",
         isAvailable: true,
     });
-    res.send(book);
+    sendBook(res, id);
 });
 
 // Delete book
@@ -95,22 +121,43 @@ server.put("/book/:id", async(req, res) => {
         title,
         author,
     });
-    res.send(book);
+    sendBook(res, id);
 });
 
 // ----------- Member API Implement ------------------
 
+const convertToMember = (member) => {
+    return {
+        id: member._id,
+        nic: member.nic,
+        firstName: member.firstName,
+        middleName: member.middleName,
+        lastName: member.lastName,
+        contactNo: member.contactNo,
+        address: member.address,
+        userType: member.userType,
+    };
+};
+
+const sendMember = async(res, id) => {
+    const member = await Member.findById(id);
+    res.send(convertToMember(member));
+};
+
 // Get all members
 server.get("/member", async(req, res) => {
     const members = await Member.find();
-    res.send(members);
+    res.send(
+        members.map((member) => {
+            return convertToMember(member);
+        })
+    );
 });
 
 // Get one member
 server.get("/member/:id", async(req, res) => {
     id = req.params.id;
-    const member = await Member.findById(id);
-    res.send(member);
+    sendMember(res, id);
 });
 
 // Create a new member
@@ -127,14 +174,14 @@ server.post("/member", async(req, res) => {
         userType,
     });
     const response = await member.save();
-    res.send(member);
+    res.send(convertToMember(member));
 });
 
 //  Delete a member
 server.delete("/member/:id", async(req, res) => {
     id = req.params.id;
     const member = await Member.findByIdAndDelete(id);
-    res.send(member);
+    sendMember(res, id);
 });
 
 // Edit Member
@@ -151,5 +198,5 @@ server.put("/member/:id", async(req, res) => {
         address,
         userType,
     });
-    res.send(member);
+    sendMember(res, id);
 });
