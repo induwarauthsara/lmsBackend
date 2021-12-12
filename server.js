@@ -79,7 +79,7 @@ server.post("/book", async(req, res) => {
 });
 
 // Burrow book
-server.put("/book/:id/borrow", async(req, res) => {
+server.put("/book/:id/burrow", async(req, res) => {
     const id = req.params.id;
     const { burrowedMemberId, burrowedDate } = req.body;
 

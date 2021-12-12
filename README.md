@@ -20,7 +20,7 @@ npm start
 - Get all Books Details - [GET] localhost:2000/book
 - Get one Book Details - [GET] localhost:2000/book/:id
 - Create New Book - [POST] localhost:2000/book
-- Borrow Book - [PUT] localhost:2000/book/:id/borrow
+- Borrow Book - [PUT] localhost:2000/book/:id/burrow
 - Return Book - [PUT] localhost:2000/book/:id/return
 - Delete Book - [DELETE] localhost:2000/book/:id
 - Edit Book - [PUT] localhost:2000/book/:id
